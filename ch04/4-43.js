@@ -31,7 +31,7 @@ console.log(foo.country);
 // 1. Person.prototype.constructor의 값은 어떤 값?
 // 2. 변경한 프로토타입 객체는 country 프로퍼티가 있으므로, 디폴트 프로토타입 객체처럼 constructor 프로퍼티가 없다.
 // 3. 프로토타입 체이닝이 발생
-// 4. 변경한 프로토타입 객체는 객체 리터럴 방식으로 생성했으므로 Object.prototype을 [Prototype] 링크로 ㅇ녀결
+// 4. 변경한 프로토타입 객체는 객체 리터럴 방식으로 생성했으므로 Object.prototype을 [Prototype] 링크로 연결
 // 5. Object.prototype 객체로 프로토타입 체이닝이 발생
 // 6. Object.prototype 역시 Object() 생성자 함수와 연결된 빌트인 프로토타입 객체이다.
 // 7. Object() 생성자 함수를 construtor 프로퍼티에 연결하고있다.
