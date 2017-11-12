@@ -1,19 +1,16 @@
-/*
-이 예제에서 HelloFunc()는 greeting만을 인자로 넣어 사용자가 인자로 넘긴 함수를 실행시킨다. 그래서 사용자가 정의한 함수도 한개의 인자를 받는 함수를 정의할 수 밖에 없다.
-*/
-function HelloFunc(func) {
-	this.greeting = "hello"; //변수: greeting
+// 예제 5-9 특정 함수에 사용자가 정의한 객체의 메서드 연결하기
+function HelloFunction(func) {  // greeting라는 변수가 있는 함수
+    this.greeting = "hello";
 }
-
-HelloFunc.prototype.call = function(func) {
-	func ? func(this.greeting) : this.func(this.greeting);
+// func 프로퍼티에 참조되는 함수를 call() 함수로 호출한다.
+// func 프로퍼티에 자신이 정의한 함수를 참조시켜 호출할 수 있다.
+HelloFunction.prototype.call = function(func){  // 자신의 지역 변수인 greeting만을 인자로 사용자가 정의한 함수에 넘긴다.
+    func ? func(this.greeting) : this.func(this.greeting);
 }
-
-var userFunc = function(greeting) {//지역변수인 greeting만을 인자로 사용자가 정의한 함수로 넘김
-	console.log(greeting);
+// userFunc함수를 정의하여 Hello펑션에 참조시킨뒤 HelloFunction() 의 지역 변수인 greeting을 화면에 출력시킨다.
+var userFunc = function(greeting) {
+    console.log(greeting);
 }
-
-var objHello = new HelloFunc();
+var objHello = new HelloFunction();
 objHello.func = userFunc;
 objHello.call();
-
