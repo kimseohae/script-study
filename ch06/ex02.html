@@ -6,16 +6,19 @@
     <script>
         /** 자바스크립트 소스 */
         function Person(arg) {
+            console.log("1"+ "  " +arg);
             this.name = arg;
         }
 
         //Person 함수객체의 prototype 프로퍼티에 함수 정의
         Person.prototype.getName = function() {
+            console.log("2"+ "  " +this.name);
             return this.name;
         }
 
         //Person 함수객체의 prototype 프로퍼티에 함수 정의
         Person.prototype.setName = function(value) {
+            console.log("3"+ "  " +value);
             this.name = value;
         }
 
