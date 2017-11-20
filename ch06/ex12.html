@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        /** 자바스크립트 소스 */
+        var Person = function(arg) {
+        var name = arg ? arg : "zzoon" ;
+
+        var Func = function() {}
+        Func.prototype = {
+            getName : function() {
+                return name;
+            },
+            setName : function(arg) {
+                name = arg;
+            }
+        };
+
+        //클로저(이 함수가 참조하는 name 프로퍼티가 자유변수가 된다)
+        //name에 대한 접근이 불가능하다.
+        return Func;
+     }(); //즉시실행함수
+
+
+     var me = new Person();
+     console.log(me.getName());
+
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>
