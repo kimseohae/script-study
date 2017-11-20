@@ -10,13 +10,17 @@
         - 클래스, 생성자. 메서드도 모두 함수로 구현이 가능하다.
         */
         function Person(arg) {
+            console.log(arg);
             this.name = arg;
+            console.log(this.name);
 
             this.getName = function() {
+                console.log(this.name);
                 return this.name;
             }
 
             this.setName = function(value) {
+                console.log(value);
                 this.name = value;
             }
         }
