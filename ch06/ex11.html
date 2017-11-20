@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        /** 자바스크립트 소스 */
+        var ArrCreate = function(arg) {
+        var arr = [1,2,3];
+
+        return {
+            getArr : function() {
+                return arr;
+            }
+        };
+     }
+
+     var obj = ArrCreate();
+     var arr = obj.getArr();
+    //private멤버가 객체나 배열이면 얕은 복사로 참조만을 반환하므로 사용자가 이후 이를 쉽게 변경할 수 있다.
+     arr.push(5);
+     console.log(obj.getArr()); // [ 1,2,3,5 ]
+
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>
