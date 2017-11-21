@@ -24,7 +24,8 @@
         }
 
         function F() {}; //빈함수 생성
-        F.prototype =Person.prototype; //
+        console.log(">>>>>>>>>>>"+Person.prototype);
+        F.prototype =Person.prototype;
         Student.prototype = new F();  //F의 인스턴스는 Student.prototype에 참조되게 한다
         Student.prototype.constructor = Student;
         Student.super = Person.prototype;

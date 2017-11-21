@@ -6,10 +6,13 @@
     <script>
         /** 자바스크립트 소스 */
         Function.prototype.method = function(name, func) {
+            console.log("1. name: " + name);
+            console.log("1. func: " + func);
             this.prototype[name] = func;
         }
 
         function Person(arg) {
+            console.log("2.arg: " + arg);
             this.name = arg;
         }
 

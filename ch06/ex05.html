@@ -16,12 +16,14 @@
                 return this.name;
             },
             setName : function(arg) {
+                console.log("setName의 파라미터 값: "+arg);
                 this.name = arg;
             }
         };
 
         //인자로 들어온 객체를 부모로 하는 자식 객체를 생성하여 반환한다.
         function create_object(o) {
+            console.log("create_object : "+o);
             function F() {}; //빈 함수 객체 생성
             F.prototype = o; //F.prototype 프로퍼티에 인자로 들어온 객체를 참조
             return new F(); //새로운 객체를 만들어 반환 (반환된 객체: 부모 객체의 프로퍼티에 접근할 수 있고, 자신만의 프로퍼티를 만들 수 있다.)

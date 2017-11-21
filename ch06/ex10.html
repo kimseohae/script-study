@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        /** 자바스크립트 소스 */
+        var Person = function(arg) {
+        var name = arg ? arg : "zzoon" ; //private
+
+        return {
+            getName : function() {
+                return name; ////private 멤버에 접근 가능
+            },
+            setName : function(arg) {
+                name = arg;
+            }
+        };
+     }
+
+     var me = Person(); //Person 함수를 호출하여 객체를 반환받는다.
+     console.log(me.getName());
+
+    </script>
+</head>
+<body>
+<h2>ex 01</h2>
+</body>
+</html>
