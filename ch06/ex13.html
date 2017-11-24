@@ -1,0 +1,64 @@
+<!--
+- subClass란?
+= 상속받을 클래스에 넣을 변수 및 메서드가 담긴 객체를 인자로 받아 부모 함수를 상속받는 자식 클래스를 생성한다.
+= 여기서 부모함수는 subClass() 함수를 호출할때 this 객체를 의미한다.
+
+var SuperClass = subClass(obj);
+var SubClass = SuperClass.subClass(obj);
+
+-> supuerClass를 상속받는 subClass를 만들고자 할때,
+   superClass.subClass()의 형식으로 호출하게 구현한다.
+   최상위 클래스 subClass는 자바스크립트의 Function을 상속받게 한다.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        /** 자바스크립트 소스 */
+        function subClass(obj) {
+        //부모클래스를 가리키는 parent : this를 그대로 참조
+        //최상위 클래스를 Funtion을 상속받는 것으로 정함
+        var parent = this === window ? Function : this; // Node.js의 경우에는 global를 사용한다.
+        var F = function() {};
+
+        //생성자 호출
+        var child = function() { //child라는 이름의 함수 객체를 생성함으로써, 자식클래스가 만들어짐.
+            var _parent = child.parent;
+
+            //현재 클래스의 부모 생성자가 있으면, 그 함수를 호출한다. 다만, 부모가 Function인 경우는
+            //최상위 클래스에 도달했으므로 실행하지 않는다.
+            if (_parent && _parent !== Function) {
+                 _parent.apply(this, arguments); //부모함수의 재귀적 호출
+            }
+
+            if (child.prototype._init) { //생성자 호출
+                child.prototype._init.apply(this, arguments);
+            }
+        };
+        //프로토타입 체이닝
+        F.prototype = parent.prototype;
+        child.prototype = new F();
+        child.prototype.constructor = child;
+        child.parent = parent;
+        //subClass 안에서 생성하는 자식 클래스의 역할을 하는 함수는 subClass가 있어야한다.
+        child.subClass = arguments.callee;
+
+        for (var i in obj) {
+            if (obj.hasOwnProperty(i)) {
+                //사용자가 인자로 넣은 객체를 자식 클래스에 넣어 자식클래스 확장
+                child.prototype[i] = obj[i]; //객체의 프로퍼티 복사
+            }
+        }
+
+        return child;
+    }
+
+
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>
