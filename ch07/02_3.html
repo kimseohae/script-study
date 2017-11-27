@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        //함수형 프로그래밍으로 구현
+
+        function reduce(func, arr, memo){ // 함수와 배열을 인자로 넘겨받고 루프를 돌면서 실행
+            var len = arr.length;
+            i = 0;
+            accum = memo;
+
+            for(; i<len; i++){
+                accum = func(accun, arr[i]);
+            }
+
+            return accum; //최종적으로 반환되는 값
+        }
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>

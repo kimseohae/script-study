@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        //피보나치 수열
+
+        var fibo = function() {
+            var cache = {'0' : 1, '1' : 1};
+            var func = function(n){
+                if(typeof(cache[n]) === 'number'){
+                    result = cache[n];
+                } else {
+                    reuslt = cache[n] = func(n-1) + func(n-2);
+                }
+
+                return result;
+            }
+
+            return func;
+        }();
+
+        console.log(fibo(10));
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>

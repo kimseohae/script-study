@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        var cacher = function(cache, func){
+            var calculate = function(n){
+                if(typeof(cache[n]) === 'number'){
+                    result = cache[n];
+                } else {
+                    result = cache[n] = func(calculate, n);
+                }
+
+                return result;
+            }
+
+            return calculate;
+        };
+
+        var fact = cacher({'0' : 1}, function(func, n){
+            return n * func(n-1);
+        });
+
+        var fibo = cacher({'0' : 1, '1': 1}, function(func, n){
+            return func(n-1) + func(n-2);
+        });
+
+        console.log(fact(10));
+        console.log(fibo(10));
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>

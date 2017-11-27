@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        var factorial = function(){
+            var cache = {'0' : 1};
+            var func = function(n){
+
+                var result = 0;
+
+                if(typeof(cache[n]) === 'number'){
+                    result = cache[n];
+                } else {
+                    result = cache[n] = n * func(n-1);
+                }
+
+                return result;
+            }
+
+            return func;
+        }();
+
+        console.log(factorial(10));
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>

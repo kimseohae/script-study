@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        /** 자바스크립트 소스 */
+
+        var f1 = function(input){
+            var result;
+
+            //암호화 작업 수행
+            result = 1;
+            return result;
+        }
+
+        var f2 = function(intput){
+            var result;
+
+            //암호화 작업 수행
+            result = 2;
+            return result;
+        }
+
+        var f3 = function(input){
+            var result;
+
+            //암호화 작업수행
+            result = 3;
+            return result;
+        }
+
+        // get_encrypted() 함수에서 반환하는 익명 함수:클로저
+        var get_encrypted = function(func){
+            var str = 'seohae'; //이 str변수는 외부에서 접근할 수 없다!
+
+            return function(){ // 이 익명함수가 클로저다.
+                return func.call(null, str);
+            }
+        }
+
+        // 함수의 인자를 함수로 넘기고, 결과로 함수를 반환할 수 있다.
+        var encrypted_value = get_encrypted(f1)();
+        console.log(encrypted_value); //1
+
+        var encrypted_value = get_encrypted(f2)();
+        console.log(encrypted_value); //2
+
+        var encrypted_value = get_encrypted(f3)();
+        console.log(encrypted_value); //3
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>
