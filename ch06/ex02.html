@@ -11,13 +11,13 @@
         }
 
         //Person 함수객체의 prototype 프로퍼티에 함수 정의
-        Person.prototype.getName = function() {
+        Person.prototype.getName = function() { //부모역할을 하는 프로토타입에 할당
             console.log("2"+ "  " +this.name);
             return this.name;
         }
 
         //Person 함수객체의 prototype 프로퍼티에 함수 정의
-        Person.prototype.setName = function(value) {
+        Person.prototype.setName = function(value) { //부모역할을 하는 프로토타입에 할당
             console.log("3"+ "  " +value);
             this.name = value;
         }

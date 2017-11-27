@@ -5,10 +5,10 @@
     <title>javascript inside</title>
     <script>
         /** 자바스크립트 소스 */
-        function create_object(o) {
-            function F() {}
-            F.prototype = o;
-            return new F();
+        function create_object(o) { //함수 정의
+            function F() {} //함수 생성 객체
+            F.prototype = o; //생성한 F함수 객체의 프로토타입에 인자로 받은 객체를 참조
+            return new F(); //F 함수 객체를 생성자로 하는 새로운 객체 생성 후 반환
         }
     </script>
 </head>

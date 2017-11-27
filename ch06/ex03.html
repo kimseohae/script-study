@@ -8,8 +8,8 @@
         Function.prototype.method = function(name, func) {
             console.log("1. name: " + name);
             console.log("1. func: " + func);
-            this.prototype[name] = func;
-        }
+            this.prototype[name] = func; //호출한 객체의 프로토타입에 메소드를 추가한다.
+        } //전역 Function 객체의 prototype에 메서드 생성
 
         function Person(arg) {
             console.log("2.arg: " + arg);

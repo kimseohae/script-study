@@ -23,9 +23,10 @@
         function Student(arg) {
         }
 
-        function F() {}; //빈함수 생성
+        //중개자 역할의 출연
+        function F() {}; //빈함수 생성 (부모 객체의 프로토타입과 자식 프로토타입을 연결하는 빈 함수)
         console.log(">>>>>>>>>>>"+Person.prototype);
-        F.prototype =Person.prototype;
+        F.prototype = Person.prototype;
         Student.prototype = new F();  //F의 인스턴스는 Student.prototype에 참조되게 한다
         Student.prototype.constructor = Student;
         Student.super = Person.prototype;

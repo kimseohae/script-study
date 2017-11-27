@@ -21,7 +21,7 @@
             return new F();
         }
 
-        function extend(obj,prop) {
+        function extend(obj,prop) { //얕은복사
             if ( !prop ) { prop = obj; obj = this; }
             for ( var i in prop ) obj[i] = prop[i];
             return obj;
@@ -42,7 +42,9 @@
             }
         };
 
-        extend(student, added);
+        extend(student, added); //extend : student + added
+
+        console.dir(student); //
 
         student.setAge(25);
         console.log(student.getAge());
