@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        var print_all = function(arg){
+            for(var i in this) console.log(i + ":" + this[i]);
+            for(var i in arguments) console.log(i +":" + arguments[i]);
+        }
+
+        var myobj = {name:'zzoon'};
+
+        //myobj 객체를 this에 바인딩시켜서 print_all 함수를 실행하는 새로운 함수
+        var myfunc = print_all.bind(myobj);
+
+        //인자가 bind() 함수에 모두 넘겨진다.
+        var myfunc1 = print_all.bind(myobj, "seohae", "others");
+        myfunc1("insidejs");
+
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>

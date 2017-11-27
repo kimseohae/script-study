@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        Array.prototype.reduce = function(callback, memo){
+            // this가 null인지, 배열인지 체크
+            // callback이 함수인지 체크
+
+            var obj = this;
+            var value, accumulated_value = 0;
+
+            for (var i=0 ; i<obj.length; i++){
+                value = obj[i];
+                accumulated_value = callback.call(null, accumulated_value, value);
+            }
+            return accumulated_value;
+        };
+        var arr = [1,2,3];
+        var accumulated_val = arr.reduce(function(a, b){
+            return a + b*b;
+        });
+        console.log(accumulated_val);
+
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>

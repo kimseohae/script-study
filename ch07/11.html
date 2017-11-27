@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript inside</title>
+    <script>
+        function each(obj, fn, args){
+            console.log(obj);
+
+            if(obj.length == undefined){
+                for (var i in obj){
+                    fn.apply(obj[i], args || [i, obj[i]]);
+                }
+            } else {
+                for (var i=0;i<obj.length;i++){
+                    fn.apply(obj[i], args || [i, obj[i]]);
+                }
+            }
+
+            return obj;
+        };
+
+        each([1,2,3], function(idx, num){
+            console.log(idx + ":" + num);
+        });
+
+        var zzoon = {
+            name:'zzoon',
+            zge:30,
+            sex:'Male',
+            length:3
+        };
+
+        each(zzoon, function(idx, value){
+            console.log(idx + ":" + value);
+        });
+
+    </script>
+</head>
+<body>
+<h4>정상적으로 실행되었!</h4>
+</body>
+</html>
